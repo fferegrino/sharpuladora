@@ -1,4 +1,4 @@
-﻿using Sharpuladora.Pages;
+using Sharpuladora.Pages;
 using Xamarin.Forms;
 
 namespace Sharpuladora

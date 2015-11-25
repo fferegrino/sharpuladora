@@ -22,14 +22,16 @@ Es momento de empezar a meterle mano al código, abre la solución `Sharpuladora
 
 ## Parte 2 - Las páginas  
 
+### Parte 2.1 - Creando la página principal
+
+### Parte 2.2 - Estableciendo una página de inicio
+
 ## Parte 3 - El layout
 ¿Qué elementos de interfaz tiene una calculadora? la *Sharpuladora* es una calculadora cosa bastante sencilla
 
 ## Parte 4 - Los elementos de interfaz  
 
-## parte 5 - Los eventos
-  
-## Parte 6 - Estableciendo una pantalla de inicio  
-Si llegaste a correr la aplicación en el paso anterior, te habrás dado cuenta que lo único que nos muestra al ejecutarla es un mensaje de bienvenida a Xamarin.Forms... y es hora de cambiar eso.  
+## parte 5 - Los eventos  
 
-Para hacerlo, es necesario que vayamos al punto de entrada de nuestra app de Xamarin.Forms, y en el caso de la *Sharpuladora*, es el archivo `App.cs`
+## Parte 6 - Un pequeño truco  
+  
