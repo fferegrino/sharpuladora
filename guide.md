@@ -3,30 +3,30 @@ Sharpuladora
 ¿Quién no ha hecho un clásico "Hola mundo!" cuando inicia a trabajar con un nuevo lenguaje/framework?
 Pues bueno, tan clásico es el *hola mundo* como hacer una calculadora y para Xamarin.Forms no es la excepción. En esta guía te mostraré cómo usar algunos controles para crear tus apps... y entre ellas ¡tu propia calculadora!  
 
-# ¿Como funciona esta guía? 
+# ¿Cómo funciona esta guía? 
 Esta guía emplea un formato interactivo, viene acompañada de código que puedes probar y modificar al momento que haces el ejercicio. El código se divide en tres o cuatro carpetas:  
 
  - **start** es el punto de inicio de la guía, contiene una solución preparada para comenzar a trabajar.
  - **parts** son todos y cada uno de los archivos necesarios para completar la guía, usualmente son provistos como referencia para que si te llegas a atorar con algo los revises y si es necesario copies el código para seguir avanzando con la guía. Este documento está dividido en partes y a cada una de ellas le corresponde una subcarpeta. 
- - **final** es el resultado final, al que queremos llegar con la guía. Esta carpeta, al igual que la carpeta `parts` es incluida como referencia, para mostrar el producto inal.
+ - **final** es el resultado final, al que queremos llegar con la guía. Esta carpeta, al igual que la carpeta `parts` es incluida como referencia, para mostrar el producto final.
  - **bonus** (opcional) muchas veces, al tratar de mostrar un concepto, es muy probable que se omitan algunas buenas prácticas, se evite el uso de librerías de terceros, etc. Por lo cual, esta carpeta contendrá una aplicación similar a la que se encuentra en `final` pero tomando en cuenta cosas que se pudieron haber omitido para favorecer el aprendizaje del tema tratado.  
  
-Como se menciona antes, esta guía está dividida en varias partes que componen los temas que se verán a lo mietras comienzas a desarrollar tu propia app. Es muy probable que en cada parte se vea una porción de código y posteriormente se haga referencia a uno o varios archivos en los que se hace uso de lo mencionado, estos son los archivos que vas a enconttrar dentro de la carpeta `parts`.  
+Como se menciona antes, esta guía está dividida en varias partes que componen los temas que se verán a lo mientras comienzas a desarrollar tu propia app. Es muy probable que en cada parte se vea una porción de código y posteriormente se haga referencia a uno o varios archivos en los que se hace uso de lo mencionado, estos son los archivos que vas a encontrar dentro de la carpeta `parts`.  
 
 Si tienes dudas sobre el funcionamiento de la guía, házmelas saber a feregrino@thatcsharpguy.com o @io_exception en Twitter. 
 
 # La Sharpuladora
 
 ## Introducción  
-Dentro de esta guía se asume que ya tienes un entendimiento básico de cómo es que funciona Xamarin, si no, te invito a que consultes [Getting started with Xamarin](https://developer.xamarin.com/guides/cross-platform/getting_started/). Mi post sobre [qué necesitas para desarrollar con Xamarin](http://thatcsharpguy.com/post/xamarin-como-empiezo/) o este otro sobre como ir [de la consola a apps móviles](http://thatcsharpguy.com/post/from-console-to-mobile/). O cualquier otro recurso de confianza.
+Dentro de esta guía se asume que ya tienes un entendimiento básico de cómo es que funciona Xamarin, si no, te invito a que consultes [Getting started with Xamarin](https://developer.xamarin.com/guides/cross-platform/getting_started/). Mi post sobre [qué necesitas para desarrollar con Xamarin](http://thatcsharpguy.com/post/xamarin-como-empiezo/) o este otro sobre cómo ir [de la consola a apps móviles](http://thatcsharpguy.com/post/from-console-to-mobile/). O cualquier otro recurso de confianza.
 
-## Parte 1 - Familiarizandose con el código  
-Como todos los entornos de desarrollo, tanto Xamarin Studio como Visual Studio tienen su propia manera de gestionar los archivos que componen nuestras aplicaciones, pero en breve te cuento que en estos entornos se dividen los proyectos por plataforma, siendo así que como queremos que nuestra calculadora esté disponible para tres distintas tendremos tres proyectos diferentes más uno, que es el núcleo de nuestra aplicación. Escribí un post sobre esto, para conocer mas visita [¿Cómo organiza mi código Visual Studio?](http://thatcsharpguy.com/post/organizacion-codigo-visual-studio/).  
+## Parte 1 - Familiarizándose con el código  
+Como todos los entornos de desarrollo, tanto Xamarin Studio como Visual Studio tienen su propia manera de gestionar los archivos que componen nuestras aplicaciones, pero en breve te cuento que en estos entornos se dividen los proyectos por plataforma, siendo así que como queremos que nuestra calculadora esté disponible para tres distintas tendremos tres proyectos diferentes más uno, que es el núcleo de nuestra aplicación. Escribí un post sobre esto, para conocer más visita [¿Cómo organiza mi código Visual Studio?](http://thatcsharpguy.com/post/organizacion-codigo-visual-studio/).  
   
 Es momento de empezar a meterle mano al código, abre la solución `Sharpuladora.sln` que está dentro de la carpeta `start` y mira el panel del explorador de soluciones. Para esta parte no hay código que agregar, solo ver. Una vez que hayas explorado lo suficiente, avanza a la parte 2.  
 
 ## Parte 2 - Las páginas  
-Las interfaz gráfica de aplicaciones en Xamarin.Forms se compone de un conjunto de elementos del tipo `Page`, sin embargo Forms nos ofrece algunas páginas pre-programadas que podemos usar para trabajar con muestras apps. Puedes consultar el listado completo aquí.  
+Las interfaces gráficas de las aplicaciones en Xamarin.Forms se compone de un conjunto de elementos del tipo `Page`, sin embargo, Forms nos ofrece algunas páginas pre-programadas que podemos usar para trabajar con nuestras apps. Puedes consultar el listado completo [aquí](https://developer.xamarin.com/guides/cross-platform/xamarin-forms/controls/pages/).  
 
 La *Sharpuladora* únicamente consta de una sola pantalla, que creamos a partir de una `ContentPage` que es de las más sencillas de manejar.  
 
@@ -51,7 +51,7 @@ MainPage = new CalcPage();
 Archivo `App.cs`
 
 ## Parte 3 - El layout  
-Nuestra página actúa como un contenenedor para los elementos de la interfaz, sin embargo debemos agregarle un *layout* para indicarle la organización de dichos elementos. Al igual que con las páginas, Forms viene pre-cargado con una colección de *layouts* que puedes consultar en este enlace  
+Nuestra página actúa como un contenedor para los elementos de la interfaz, sin embargo, debemos agregarle un *layout* para indicarle la organización de dichos elementos. Al igual que con las páginas, Forms viene pre-cargado con una colección de *layouts* que puedes consultar en este [enlace](https://developer.xamarin.com/guides/cross-platform/xamarin-forms/controls/layouts/) 
   
 ### Parte 3.1 - El Grid  
 Una calculadora sencilla no requiere de mucho pensar, los botones están ordenados en filas y columnas, lo cual parece un trabajo para un `Grid`.  
@@ -69,7 +69,7 @@ layout.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, Gr
 layout.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
 ```  
 
-En el código anterior se crea un nuevo `Grid` llamado `layout` y se le añaden dos columnas y dos filas. Algo importante a notar es que para ls columnas se les establece la propiedad `Width` y para las filas a propiedad `Height`. El hecho de que se use `GridUnitType.Star` (o `*`) indica que el tamaño de las columnas será proporcional entre ellas.  
+En el código anterior se crea un nuevo `Grid` llamado `layout` y se le añaden dos columnas y dos filas. Algo importante a notar es que para las columnas se les establece la propiedad `Width` y para las filas a propiedad `Height`. El hecho de que se use `GridUnitType.Star` (o `*`) indica que el tamaño de las columnas será proporcional entre ellas.  
   
 Para el ejercicio, crea un grid con filas y columnas que representen el siguiente gráfico: 
 
@@ -91,7 +91,7 @@ La inicialización de controles es bastante sencilla, por ejemplo, para crear el
 _b0 = new Button { Text = "0" };
 ```  
 
-Una vez creado el control debemos añadirlo al *layout* contenedor para que se muestre en la pantalla. Recordemos que nuestro *layout* se compone de filas y columnas, así que debemos asignarle una fila y una columna en donde mostrarse a nuestro control, la clase `Grid` nos permite asignarlos con los métodos estáticos `SetColumn` y `SetRow`. En el codigo siguiente, se le asigna la columna 1 y la fila 4 al botón `_b0`:
+Una vez creado el control debemos añadirlo al *layout* contenedor para que se muestre en la pantalla. Recordemos que nuestro *layout* se compone de filas y columnas, así que debemos asignarle una fila y una columna en donde mostrarse a nuestro control, la clase `Grid` nos permite asignarlos con los métodos estáticos `SetColumn` y `SetRow`. En el código siguiente, se le asigna la columna 1 y la fila 4 al botón `_b0`:
 
 ```
 Grid.SetColumn(_b0, 1);
@@ -162,4 +162,5 @@ Content = relativeLayout;
 ```  
 
 # Siguientes pasos  
-De aquí puedes ver el ejercicio completo en la carpeta `final` o en su caso ver una versión mejorada en `bonus`. Recuerda que si llegas a tener dudas sobre lo visto en esta guía puedes contactarme vía correo o Twitter. 
+Como probablemente te habrás dado cuenta, la aplicación no está completa, le falta implementar algunos manejadores y toda la lógica de la calculadora. Esa es tu labor.  
+Recuerda que si llegas a tener dudas sobre lo visto en esta guía puedes contactarme vía [correo](mailto:feregrino@thatcsharpguy) o [Twitter](https://twitter.com/io_exception). 
