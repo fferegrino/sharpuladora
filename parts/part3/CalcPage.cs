@@ -5,13 +5,13 @@ namespace Sharpuladora.Pages
 {
     public class CalcPage : ContentPage
     {
-        Grid _gridLayout;
+        Grid _layout;
         
         public CalcPage()
         {
-            _gridLayout = CreateGridLayout();
+            _layout = CreateGridLayout();
             
-            Content = _gridLayout;
+            Content = _layout;
         }
         
         

@@ -3,149 +3,151 @@ using Xamarin.Forms;
 
 namespace Sharpuladora.Pages
 {
-    public class CalcPage : ContentPage
-    {
-        Grid _gridLayout;
-        
-        Button _b0, _b1, _b2, _b3, _b4, _b5, _b6, _b7;
-        Button _calculateBtn, _plusBtn, _minusBtn, _clearBtn;
-        Label _resultDisplay;
-        
-        public CalcPage()
-        {
-            _gridLayout = CreateGridLayout();
+	public class CalcPage : ContentPage
+	{
+		Grid _layout;
 
-            CreateUiElements();
-            
-            WireEvents();
-            
-            Content = _gridLayout;
-        }
+		Button _b0, _b1, _b2, _b3, _b4, _b5, _b6, _b7;
+		Button _calculateBtn, _plusBtn, _minusBtn, _clearBtn;
+		Label _resultDisplay;
 
-        private void WireEvents()
-        {
-            _b0.Clicked += OnNumericButtonClicked;
-            _b1.Clicked += OnNumericButtonClicked;
-            _b2.Clicked += OnNumericButtonClicked;
-            _b3.Clicked += OnNumericButtonClicked;
+		string firstNumber, secondNumber, oper;
 
-            _igualBtn.Clicked += OnControlButtonClicked;
+		public CalcPage()
+		{
+			_layout = CreateGridLayout();
 
-            _borrarBtn.Clicked += OnClearButtonClicked;
-        }
-        
+			CreateUiElements();
 
-        #region Events
+			WireEvents();
 
-        void OnClearButtonClicked(object sender, EventArgs e)
-        {
-            primerNumero = "";
-            segundoNumero = "";
-            operador = "";
-        }
+			Content = _layout;
+		}
 
-        private void OnControlButtonClicked(object sender, EventArgs e)
-        {
-            Button botonClickeado = (Button)sender;
-            string operador = botonClickeado.Text;
-            if (operador == "=")
-            {
-                int r = 0;
-                // Acá va la calculadora
-                _displayResultado.Text = "R:" + r;
-            }
-            else
-            {
-                // Otro operador
-            }
-        }
+		private void WireEvents()
+		{
+			_b0.Clicked += OnNumericButtonClicked;
+			_b1.Clicked += OnNumericButtonClicked;
+			_b2.Clicked += OnNumericButtonClicked;
+			_b3.Clicked += OnNumericButtonClicked;
 
-        void OnNumericButtonClicked(object sender, EventArgs e)
-        {
-            Button botonClickeado = (Button)sender;
-            if (primerNumero == null || primerNumero == "")
-            {
-                primerNumero = botonClickeado.Text;
-            }
-            else
-            {
-                segundoNumero = botonClickeado.Text;
-            }
-        }
+			_calculateBtn.Clicked += OnControlButtonClicked;
 
-        #endregion
+			_clearBtn.Clicked += OnClearButtonClicked;
+		}
 
-        private void CreateUiElements()
-        {
-            _displayResultado = new Label
-            {
-                FontSize = 40,
-                Text = "0"
-            };
-            Grid.SetColumnSpan(_displayResultado, 4);
-            _gridLayout.Children.Add(_displayResultado);
 
-            #region Numeric buttons
+		#region Events
 
-            _b0 = new Button { Text = "0" };
-            Grid.SetColumn(_b0, 1);
-            Grid.SetRow(_b0, 4);
-            _gridLayout.Children.Add(_b0);
+		void OnClearButtonClicked(object sender, EventArgs e)
+		{
+			firstNumber = "";
+			secondNumber = "";
+			oper = "";
+		}
 
-            _b1 = new Button { Text = "1" };
-            Grid.SetColumn(_b1, 0);
-            Grid.SetRow(_b1, 3);
-            _gridLayout.Children.Add(_b1);
+		private void OnControlButtonClicked(object sender, EventArgs e)
+		{
+			Button botonClickeado = (Button)sender;
+			string oper = botonClickeado.Text;
+			if (oper == "=")
+			{
+				int r = 0;
+				// Acá va la calculadora
+				_resultDisplay.Text = "R:" + r;
+			}
+			else
+			{
+				// Otro oper
+			}
+		}
 
-            _b2 = new Button { Text = "2" };
-            Grid.SetColumn(_b2, 1);
-            Grid.SetRow(_b2, 3);
-            _gridLayout.Children.Add(_b2);
+		void OnNumericButtonClicked(object sender, EventArgs e)
+		{
+			Button botonClickeado = (Button)sender;
+			if (firstNumber == null || firstNumber == "")
+			{
+				firstNumber = botonClickeado.Text;
+			}
+			else
+			{
+				secondNumber = botonClickeado.Text;
+			}
+		}
 
-            _b3 = new Button { Text = "3" };
-            Grid.SetColumn(_b3, 2);
-            Grid.SetRow(_b3, 3);
-            _gridLayout.Children.Add(_b3);
+		#endregion
 
-            // TODO: add missing buttons
+		private void CreateUiElements()
+		{
+			_resultDisplay = new Label
+			{
+				FontSize = 40,
+				Text = "0"
+			};
+			Grid.SetColumnSpan(_resultDisplay, 4);
+			_layout.Children.Add(_resultDisplay);
 
-            #endregion
+			#region Numeric buttons
 
-            #region Control buttons
+			_b0 = new Button { Text = "0" };
+			Grid.SetColumn(_b0, 1);
+			Grid.SetRow(_b0, 4);
+			_layout.Children.Add(_b0);
 
-            _igualBtn = new Button { Text = "=" };
-            Grid.SetColumn(_igualBtn, 3);
-            Grid.SetRow(_igualBtn, 4);
-            _gridLayout.Children.Add(_igualBtn);
+			_b1 = new Button { Text = "1" };
+			Grid.SetColumn(_b1, 0);
+			Grid.SetRow(_b1, 3);
+			_layout.Children.Add(_b1);
 
-            _borrarBtn = new Button { Text = "C" };
-            Grid.SetColumn(_borrarBtn, 3);
-            Grid.SetRow(_borrarBtn, 1);
-            _gridLayout.Children.Add(_borrarBtn);
+			_b2 = new Button { Text = "2" };
+			Grid.SetColumn(_b2, 1);
+			Grid.SetRow(_b2, 3);
+			_layout.Children.Add(_b2);
 
-            // TODO: add missing buttons
-            
-            #endregion
-        }
-        
-        private Grid CreateGridLayout()
-        {
-            var layout = new Grid();
-            layout.HorizontalOptions = LayoutOptions.StartAndExpand;
-            layout.VerticalOptions = LayoutOptions.StartAndExpand;
+			_b3 = new Button { Text = "3" };
+			Grid.SetColumn(_b3, 2);
+			Grid.SetRow(_b3, 3);
+			_layout.Children.Add(_b3);
 
-            layout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(2, GridUnitType.Star) });
-            layout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-            layout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-            layout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-            layout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-            
-            layout.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-            layout.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-            layout.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-            layout.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+			// TODO: add missing buttons
 
-            return layout;
-        }
-    }
+			#endregion
+
+			#region Control buttons
+
+			_calculateBtn = new Button { Text = "=" };
+			Grid.SetColumn(_calculateBtn, 3);
+			Grid.SetRow(_calculateBtn, 4);
+			_layout.Children.Add(_calculateBtn);
+
+			_clearBtn = new Button { Text = "C" };
+			Grid.SetColumn(_clearBtn, 3);
+			Grid.SetRow(_clearBtn, 1);
+			_layout.Children.Add(_clearBtn);
+
+			// TODO: add missing buttons
+
+			#endregion
+		}
+
+		private Grid CreateGridLayout()
+		{
+			var layout = new Grid();
+			layout.HorizontalOptions = LayoutOptions.StartAndExpand;
+			layout.VerticalOptions = LayoutOptions.StartAndExpand;
+
+			layout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(2, GridUnitType.Star) });
+			layout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+			layout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+			layout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+			layout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+
+			layout.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+			layout.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+			layout.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+			layout.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+
+			return layout;
+		}
+	}
 }

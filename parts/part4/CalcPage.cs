@@ -5,7 +5,7 @@ namespace Sharpuladora.Pages
 {
     public class CalcPage : ContentPage
     {
-        Grid _gridLayout;
+        Grid _layout;
         
         Button _b0, _b1, _b2, _b3, _b4, _b5, _b6, _b7;
         Button _calculateBtn, _plusBtn, _minusBtn, _clearBtn;
@@ -13,44 +13,44 @@ namespace Sharpuladora.Pages
         
         public CalcPage()
         {
-            _gridLayout = CreateGridLayout();
+            _layout = CreateGridLayout();
 
             CreateUiElements();
             
-            Content = _gridLayout;
+            Content = _layout;
         }
 
         private void CreateUiElements()
         {
-            _displayResultado = new Label
+            _resultDisplay = new Label
             {
                 FontSize = 40,
                 Text = "0"
             };
-            Grid.SetColumnSpan(_displayResultado, 4);
-            _gridLayout.Children.Add(_displayResultado);
+            Grid.SetColumnSpan(_resultDisplay, 4);
+            _layout.Children.Add(_resultDisplay);
 
             #region Numeric buttons
 
             _b0 = new Button { Text = "0" };
             Grid.SetColumn(_b0, 1);
             Grid.SetRow(_b0, 4);
-            _gridLayout.Children.Add(_b0);
+            _layout.Children.Add(_b0);
 
             _b1 = new Button { Text = "1" };
             Grid.SetColumn(_b1, 0);
             Grid.SetRow(_b1, 3);
-            _gridLayout.Children.Add(_b1);
+            _layout.Children.Add(_b1);
 
             _b2 = new Button { Text = "2" };
             Grid.SetColumn(_b2, 1);
             Grid.SetRow(_b2, 3);
-            _gridLayout.Children.Add(_b2);
+            _layout.Children.Add(_b2);
 
             _b3 = new Button { Text = "3" };
             Grid.SetColumn(_b3, 2);
             Grid.SetRow(_b3, 3);
-            _gridLayout.Children.Add(_b3);
+            _layout.Children.Add(_b3);
 
             // TODO: add missing buttons
 
@@ -58,15 +58,15 @@ namespace Sharpuladora.Pages
 
             #region Control buttons
 
-            _igualBtn = new Button { Text = "=" };
-            Grid.SetColumn(_igualBtn, 3);
-            Grid.SetRow(_igualBtn, 4);
-            _gridLayout.Children.Add(_igualBtn);
+            _calculateBtn = new Button { Text = "=" };
+            Grid.SetColumn(_calculateBtn, 3);
+            Grid.SetRow(_calculateBtn, 4);
+            _layout.Children.Add(_calculateBtn);
 
-            _borrarBtn = new Button { Text = "C" };
-            Grid.SetColumn(_borrarBtn, 3);
-            Grid.SetRow(_borrarBtn, 1);
-            _gridLayout.Children.Add(_borrarBtn);
+            _clearBtn = new Button { Text = "C" };
+            Grid.SetColumn(_clearBtn, 3);
+            Grid.SetRow(_clearBtn, 1);
+            _layout.Children.Add(_clearBtn);
 
             // TODO: add missing buttons
             
